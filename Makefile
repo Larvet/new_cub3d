@@ -6,7 +6,7 @@
 #    By: locharve <locharve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2024/10/28 13:14:09 by locharve         ###   ########.fr        #
+#    Updated: 2024/10/29 12:46:13 by locharve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC = main.c \
 	str_utils.c \
 	strtab_utils.c \
 	t_cub.c \
+	t_cub_raw_parse.c \
 	t_str_utils.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

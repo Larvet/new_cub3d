@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 08:38:37 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/28 13:19:07 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:46:11 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_err	extension_check(char *filename, char *ext)
 {
 	char	*ptr;
 
+	printf("filename = %s\n", filename); ////
 	ptr = ft_strrchr(filename, '.');
 	if (!ptr || ft_strcmp(ptr, ext))
 		return (_badext);
@@ -85,6 +86,7 @@ t_err	t_cub_raw_init(t_cub *cub, char *path)
 	t_err	err;
 
 	slist = NULL;
+//	printf("path = %s\n", path); ////
 	err = extension_check(path, ".cub");
 	if (!err)
 		err = is_path_dir(path);
@@ -106,7 +108,9 @@ t_err	t_cub_raw_init(t_cub *cub, char *path)
 
 t_err	parsing_cub(t_cub *cub, char *path)
 {
+	printf("path = %s\n", path); ////
 	cub->err = t_cub_raw_init(cub, path);
-	// cub->err = raw_check_format(cub->raw);
+	if (!cub->err)
+		cub->err = t_cub_raw_parse(cub); //
 	return (cub->err);
 }

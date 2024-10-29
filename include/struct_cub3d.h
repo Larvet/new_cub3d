@@ -6,21 +6,12 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:48:43 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/28 12:07:40 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:46:20 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_CUB3D_H
 # define STRUCT_CUB3D_H
-
-typedef enum e_err
-{
-	_ok,		// 0 = no error
-	_malloc,	// malloc error
-	_badext,	// file extension muste be .cub
-	_isdir,		// file is a directory
-	_fileop		// cannot open file
-}	t_err;
 
 typedef struct s_str
 {
@@ -30,8 +21,15 @@ typedef struct s_str
 
 typedef struct s_cub
 {
-	char	**raw; // raw file
-	t_err	err;
+	char	**raw;		// raw file
+
+	char	**raw_args;	// contains textures and rgb
+	char	**path;		// checked textures paths ; NO, SO, EA, WE
+	int		floor_rgb;	// parsed rgb
+	int		ceiling_rgb;
+	char	**map;		// map with every line at same length
+	
+	t_err	err;		// error enum
 }	t_cub;
 
 

@@ -6,13 +6,13 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:42:14 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/28 13:13:14 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:46:03 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	print_error(t_err err)
+t_err	print_error(t_err err)
 {
 	char	**tab;
 	int		i;
@@ -30,4 +30,5 @@ void	print_error(t_err err)
 		}
 		strtab_free(tab);
 	}
+	return (err);
 }

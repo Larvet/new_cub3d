@@ -6,12 +6,14 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/28 13:05:45 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:46:23 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_CUB3D_H
 # define DEFINE_CUB3D_H
+
+# define WHITESPACES "\t\n\v\f\r "
 
 # define NBR_ERROR 4 // mettre a jour avec le nombre de t_error
 # define ERR_MALLOC "Memory allocation failed\n"
