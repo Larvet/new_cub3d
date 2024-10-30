@@ -1,17 +1,17 @@
 NO ./path_to_the_north_texture
 
 
+C 34,0,78
 
 
 WE ./path_to_the_west_texture
+F 200,150,122'
 SO ./path_to_the_south_texture
 EA ./path_to_the_east_texture
-F 200,150,122
 
 
 
 
-C 34,0,78
 11111111111111111      11111111111111111111111111111
       1111      11111111111                        1111111
     1110001111    11100001111111                         111111

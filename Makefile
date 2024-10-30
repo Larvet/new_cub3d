@@ -6,11 +6,11 @@
 #    By: locharve <locharve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2024/10/29 12:46:13 by locharve         ###   ########.fr        #
+#    Updated: 2024/10/30 11:26:28 by locharve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 
 SRC_DIR = ./src
 OBJ_DIR = ./obj
@@ -29,9 +29,13 @@ SRC = main.c \
 	print_error.c \
 	str_utils.c \
 	strtab_utils.c \
+	strtab_utils2.c \
 	t_cub.c \
 	t_cub_raw_parse.c \
-	t_str_utils.c
+	t_cub_set_path.c \
+	t_cub_set_rgb.c \
+	t_str_utils.c \
+	t_str_utils2.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
@@ -39,7 +43,7 @@ all: mlx libft $(NAME)
 	@echo "\001\e[1;32m\002Compilation OK \001\e[0m\002"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@test -d $(OBJS_DIR) || mkdir $(OBJS_DIR)
+	@test -d $(OBJ_DIR) || mkdir $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@ $(HEADERS)
 
 $(NAME): $(OBJ)
@@ -54,11 +58,13 @@ libft:
 	@make --no-print-directory -C ./libft -s
 
 clean:
-	@rm -rf $(OBJS_DIR)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@rm -rf $(NAME)
 
 re: clean all
+
+c: all clean
 
 .PHONY: all, clean, fclean, re, libft
