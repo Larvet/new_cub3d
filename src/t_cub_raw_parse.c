@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 07:57:17 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/30 11:32:50 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/30 12:31:13 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,16 @@ t_err	t_cub_set_raw_args(t_cub *cub, char **raw)
 
 t_err	t_cub_raw_parse(t_cub *cub)
 {
+//	int	tmp;
+	
 	if (!t_cub_set_raw_args(cub, cub->raw)
 		&& !t_cub_set_path(cub, cub->raw_args)
 		&& !t_cub_set_rgb(cub, cub->raw_args))
-		printf("okkkkkkkk\n");
+	{
+	//	i = start_of_map_index(cub->raw_args);
+		if (!check_map(cub, cub->raw))
+			printf("okkkkkkkk\n");
+	}
 //	if (!cub->err)
 //		i = t_cub_set_map(cub, &cub->raw[i]); //
 	// checker les lignes restantes apres la map

@@ -3,12 +3,10 @@ NO ./path_to_the_north_texture
 
 C 34,0,78
 
-
 WE ./path_to_the_west_texture
-F 200,150,122'
+F 200,150,122
 SO ./path_to_the_south_texture
 EA ./path_to_the_east_texture
-
 
 
 

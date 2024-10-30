@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 08:06:24 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/30 09:41:36 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/30 12:27:43 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ typedef enum e_err
 	_fileop,		// cannot open file
 	_empty,			// empty file
 	_invalidf,		// invalid arg, double arg, missing arg
-	_invalidrgb		// invalid rgb format
+	_invalidrgb,	// invalid rgb format
+	_invalidmap		// map must be only "01 " and no 0 outside the map
 }	t_err;
 
 typedef enum e_arg_id	// to set and get raw_args
