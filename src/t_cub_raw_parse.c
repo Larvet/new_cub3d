@@ -6,21 +6,11 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 07:57:17 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/30 12:31:13 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:27:02 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	skip_incharset(char *str, char *set)
-{
-	int	i;
-
-	i = 0;
-	while (str && set && str[i] && is_in_str(set, str[i]) >= 0)
-		i++;
-	return (i);
-}
 
 void	swap_str(char **s1, char **s2)
 {
@@ -77,18 +67,10 @@ t_err	t_cub_set_raw_args(t_cub *cub, char **raw)
 
 t_err	t_cub_raw_parse(t_cub *cub)
 {
-//	int	tmp;
-	
 	if (!t_cub_set_raw_args(cub, cub->raw)
 		&& !t_cub_set_path(cub, cub->raw_args)
-		&& !t_cub_set_rgb(cub, cub->raw_args))
-	{
-	//	i = start_of_map_index(cub->raw_args);
-		if (!check_map(cub, cub->raw))
-			printf("okkkkkkkk\n");
-	}
-//	if (!cub->err)
-//		i = t_cub_set_map(cub, &cub->raw[i]); //
-	// checker les lignes restantes apres la map
+		&& !t_cub_set_rgb(cub, cub->raw_args)
+		&& !t_cub_set_map(cub, cub->raw))
+		printf("okkkkkkkk\n"); //
 	return (cub->err);
 }

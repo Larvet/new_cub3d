@@ -6,12 +6,16 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:56 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/30 11:26:17 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:34:32 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_CUB3D_H
 # define PARSING_CUB3D_H
+
+/* check_map_edges.c */
+int		flood_fill(t_cub *cub, char ***map, int x, int y);
+t_err	check_map_edges(t_cub *cub, char ***map);
 
 /* print_error.c */
 t_err	print_error(t_err err);
@@ -22,11 +26,21 @@ t_err	is_path_dir(char *path);
 t_err	t_cub_raw_init(t_cub *cub, char *path);
 t_err	parsing_cub(t_cub *cub, char *path);
 
+/* smooth_map.c */
+char	*ft_strcpy_fill(char *dst, char *src, size_t len, char fill);
+t_err	make_map_rectangle(char ***dst, char **src, size_t len);
+void	set_pos(int *p_x, int *p_y, char **map);
+t_err	smooth_map(t_cub *cub, char ***map);
+
 /* str_utils.c */
 int	is_in_str(char *str, char c);
 int	str_isonly(const char *str, char *set);
 int	str_contains(const char *str, char *set);
 int	str_contains_n(const char *str, char *set);
+
+/* str_utils.c */
+int	skip_incharset(char *str, char *set);
+int	skip_outcharset(char *str, char *set);
 
 /* strtab_utils.c */
 size_t	strtab_max_len(char **strtab);
@@ -44,14 +58,20 @@ t_err	t_cub_init(t_cub *cub);
 void	t_cub_print(t_cub *cub);
 void	t_cub_destroy(t_cub *cub);
 
+/* t_cub_check_map.c */ // change name
+int		skip_param_lines(char **raw, char **avtab);
+t_err	check_raw_map(char **map);
+t_err	set_map(char ***map, char **raw);
+t_err	t_cub_set_map(t_cub *cub, char **raw);
+
 /* t_cub_raw_parse.c */
-int		skip_incharset(char *str, char *set);
 void	swap_str(char **s1, char **s2);
 t_err	t_cub_get_args(t_cub *cub, char **raw, char **avtab, int av_limit);
 t_err	t_cub_set_raw_args(t_cub *cub, char **raw);
 t_err	t_cub_raw_parse(t_cub *cub);
 
 /* t_cub_set_path.c */
+t_err	crop_and_check_path(char **new_path, char *raw_path);
 t_err	set_path(char **to_set, char **raw_args, char *to_cmp);
 t_err	t_cub_set_path(t_cub *cub, char **raw_args);
 

@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:42:14 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/30 11:24:59 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:26:54 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ t_err	print_error(t_err err)
 	if (err)
 	{
 		tab = strtab_init(NBR_ERROR, ERR_MALLOC, ERR_BADEXT, ERR_ISDIR,
-				ERR_FILEOP, ERR_EMPTY, ERR_INVALIDF, ERR_INVALIDRGB);
+				ERR_MISSINGSPACE, ERR_BADPATH, ERR_FILEOP, ERR_EMPTY,
+				ERR_INVALIDF, ERR_INVALIDRGB, ERR_INVALIDMAP, ERR_UNCLOSEDMAP);
 		if (tab)
 		{
 			i = 0;

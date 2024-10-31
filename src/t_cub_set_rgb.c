@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:08:26 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/30 11:20:57 by locharve         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:26:52 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ t_err	set_rgb(int *to_set, char **raw_args, char *to_cmp)
 		i++;
 	}
 	j++;
+	if (is_in_str(WHITESPACES, raw_args[i][j]) < 0)
+		return (_missingspace);
 	*to_set = parse_rgb(&raw_args[i][j]);
 	if (*to_set < 0)
 		return (_invalidrgb);
