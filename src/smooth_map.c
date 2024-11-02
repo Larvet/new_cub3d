@@ -6,28 +6,47 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 07:04:50 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 11:13:10 by locharve         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:43:00 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+char	*make_str_with_char(size_t len, char c)
+{
+	char	*dst;
+	size_t	i;
+
+	dst = ft_calloc(len + 1, sizeof(char));
+	if (dst)
+	{
+		i = 0;
+		while (i < len)
+		{
+			dst[i] = c;
+			i++;
+		}
+	}
+	return (dst);
+}
 
 char	*ft_strcpy_fill(char *dst, char *src, size_t len, char fill)
 {
 	size_t	i;
 
 	i = 0;
+	dst[i] = ' ';
 	while (dst && src && src[i] && src[i] != '\n')
 	{
-		dst[i] = src[i];
+		dst[i + 1] = src[i];
 		i++;
 	}
-	while (i < len)
+	while (i < len - 1)
 	{
-		dst[i] = fill;
+		dst[i + 1] = fill;
 		i++;
 	}
-	dst[i] = '\0';
+	dst[i + 1] = '\0';
 	return (dst);
 }
 
@@ -36,17 +55,20 @@ t_err	make_map_rectangle(char ***dst, char **src, size_t len)
 	int		i;
 
 	i = 0;
+	(*dst)[i] = make_str_with_char(len, ' ');
+	if (!(*dst)[i])
+		return (_malloc);
 	while (*dst && src && src[i])
 	{
-		(*dst)[i] = ft_calloc(len + 1, sizeof(char));
-		if (!(*dst)[i])
-		{
-			strtab_free(*dst);
+		(*dst)[i + 1] = ft_calloc(len + 1, sizeof(char));
+		if (!(*dst)[i + 1])
 			return (_malloc);
-		}
-		(*dst)[i] = ft_strcpy_fill((*dst)[i], src[i], len, ' ');
+		(*dst)[i + 1] = ft_strcpy_fill((*dst)[i + 1], src[i], len, ' ');
 		i++;
 	}
+	(*dst)[i + 1] = make_str_with_char(len, ' ');
+	if (!dst[i + 1])
+		return (_malloc);
 	return (_ok);
 }
 
@@ -70,8 +92,8 @@ t_err	smooth_map(t_cub *cub, char ***map)
 {
 	char	**new_map;
 
-	cub->width = strtab_max_len(*map);
-	cub->height = strtab_size(*map);
+	cub->width = strtab_max_len(*map) + 2;
+	cub->height = strtab_size(*map) + 2;
 	new_map = ft_calloc(cub->height + 1, sizeof(char *));
 	if (!new_map)
 		return (_malloc);

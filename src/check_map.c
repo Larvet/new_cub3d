@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_edges.c                                  :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 08:59:07 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 14:27:31 by locharve         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:43:18 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,7 @@ int	flood_fill(t_cub *cub, char ***map, int x, int y)
 		return (0);
 }
 
-t_err	player_inside_map(char **map, int x, int y)
-{
-	if (!x || !y
-		|| is_in_str("01", map[y - 1][x]) < 0
-		|| is_in_str("01", map[y + 1][x]) < 0
-		|| is_in_str("01", map[y][x - 1]) < 0
-		|| is_in_str("01", map[y][x + 1]) < 0)
-		return (_unclosedmap); ///////////////////////////// checker aussi les 0 a l'exterieur
-	return (_ok);
-}
-
-t_err	check_map_edges(t_cub *cub, char ***map)
+t_err	check_map(t_cub *cub, char ***map)
 {
 	int	y;
 	int	x;
@@ -50,7 +39,7 @@ t_err	check_map_edges(t_cub *cub, char ***map)
 	y = 0;
 	while ((*map)[y])
 	{
-		x = skip_outcharset((*map)[y], WHITESPACES);
+		x = skip_outcharset((*map)[y], " ");
 		while ((*map)[y][x])
 		{
 			if ((*map)[y][x] && !flood_fill(cub, map, x, y))
@@ -59,5 +48,5 @@ t_err	check_map_edges(t_cub *cub, char ***map)
 		}
 		y++;
 	}
-	return (player_inside_map(*map, cub->p_x, cub->p_y));
+	return (_ok);
 }

@@ -6,7 +6,7 @@
 #    By: locharve <locharve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2024/10/31 10:45:56 by locharve         ###   ########.fr        #
+#    Updated: 2024/11/02 11:09:33 by locharve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBFT = ./libft/libft.a
 
 # ls -1 *.c | sed -z 's/\n/ \\\n\t\t\t/g'
 SRC = main.c \
-	check_map_edges.c \
+	check_map.c \
 	parsing_cub.c \
 	print_error.c \
 	smooth_map.c \

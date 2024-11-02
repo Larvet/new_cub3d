@@ -6,16 +6,16 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:56 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 11:34:32 by locharve         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:38:34 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_CUB3D_H
 # define PARSING_CUB3D_H
 
-/* check_map_edges.c */
+/* check_map.c */
 int		flood_fill(t_cub *cub, char ***map, int x, int y);
-t_err	check_map_edges(t_cub *cub, char ***map);
+t_err	check_map(t_cub *cub, char ***map);
 
 /* print_error.c */
 t_err	print_error(t_err err);
@@ -27,6 +27,7 @@ t_err	t_cub_raw_init(t_cub *cub, char *path);
 t_err	parsing_cub(t_cub *cub, char *path);
 
 /* smooth_map.c */
+char	*make_str_with_char(size_t len, char c);
 char	*ft_strcpy_fill(char *dst, char *src, size_t len, char fill);
 t_err	make_map_rectangle(char ***dst, char **src, size_t len);
 void	set_pos(int *p_x, int *p_y, char **map);

@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:12:53 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 14:26:58 by locharve         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:45:02 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_err	set_path(char **to_set, char **raw_args, char *to_cmp)
 	}
 	j += 2;
 	if (is_in_str(WHITESPACES, raw_args[i][j]) < 0)
-		return (_missingspace); ////
+		return (_missingspace);
 	j += skip_incharset(&raw_args[i][j], WHITESPACES);
 	return (crop_and_check_path(to_set, &raw_args[i][j]));
 }
