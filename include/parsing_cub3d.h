@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:56 by locharve          #+#    #+#             */
-/*   Updated: 2024/11/02 11:38:34 by locharve         ###   ########.fr       */
+/*   Updated: 2024/11/05 10:41:19 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 /* check_map.c */
 int		flood_fill(t_cub *cub, char ***map, int x, int y);
+t_err	check_map(t_cub *cub, char ***map);
 t_err	check_map(t_cub *cub, char ***map);
 
 /* print_error.c */
@@ -53,6 +54,7 @@ char	**strtab_init(size_t size, ...);
 /* strtab_utils2.c */
 int	skip_empty_lines(char **strtab);
 int	is_in_strtab(char **tab, char *str);
+char	**strtab_replace(char **strtab, char to_find, char to_replace);
 
 /* t_cub.c */
 t_err	t_cub_init(t_cub *cub);
