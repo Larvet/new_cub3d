@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   include_cub3d.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:50 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/28 11:41:51 by locharve         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:12:11 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <errno.h>
+# include <stdbool.h>
+# include <math.h>
 # include <mlx.h>
 
 # include "libft.h"

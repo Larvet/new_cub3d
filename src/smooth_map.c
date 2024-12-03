@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smooth_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 07:04:50 by locharve          #+#    #+#             */
-/*   Updated: 2024/11/02 11:43:00 by locharve         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:12:31 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ t_err	smooth_map(t_cub *cub, char ***map)
 		return (_malloc);
 	cub->err = make_map_rectangle(&new_map, *map, cub->width);
 	if (!cub->err)
-		set_pos(&cub->p_x, &cub->p_y, new_map);
+		set_pos(&cub->player->px_x, &cub->player->px_y, new_map);
 	free(*map);
 	*map = new_map;
 	return (cub->err);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_cub3d.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 14:26:56 by locharve         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:03:45 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,16 @@ path/values by at least one space\n"
 # define ERR_INVALIDMAP "Map must contain \"01 \" characters only, \
 plus one character among \"NSWE\"\n"
 # define ERR_UNCLOSEDMAP "Map must be closed (surrounded by \"1\")\n"
+# define SCREEN_W 1920
+# define SCREEN_H 1080
+# define EXIT 41
+# define UP 26
+# define DOWN 22
+# define RIGHT 4
+# define LEFT 7
+# define RIGHT_ROTATE 80
+# define LEFT_ROTATE 79
+# define FOV 80
+# define TILE_SIZE 300
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:55:32 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 11:48:39 by locharve         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:44:25 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ t_err	t_cub_init(t_cub *cub)
 	cub->rgb[1] = -1;
 	cub->height = 0;
 	cub->width = 0;
-	cub->p_x = -1;
-	cub->p_y = -1;
+	cub->player = ft_calloc(sizeof(t_player), 1);
+	cub->ray = ft_calloc(sizeof(t_ray), 1);
+	cub->player->px_x = -1;
+	cub->player->px_y = -1;
+	cub->player->p_angle = 2 * M_PI;
+	cub->player->fov = (FOV * M_PI) / 180;
 	cub->map = NULL;
 	return (cub->err);
 }
@@ -57,4 +61,5 @@ void	t_cub_destroy(t_cub *cub)
 	free(cub->raw_args);
 	strtab_free(cub->path);
 	strtab_free(cub->map);
+	free(cub->player);
 }

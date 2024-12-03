@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: locharve <locharve@student.42.fr>          +#+  +:+       +#+         #
+#    By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2024/11/02 11:09:33 by locharve         ###   ########.fr        #
+#    Updated: 2024/12/03 14:09:12 by vnavarre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,11 @@ SRC = main.c \
 	t_cub_set_path.c \
 	t_cub_set_rgb.c \
 	t_str_utils.c \
-	t_str_utils2.c
+	t_str_utils2.c \
+	game.c \
+	raycasting.c \
+	raycasting_utils.c
+	
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
