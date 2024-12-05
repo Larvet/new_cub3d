@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:17:09 by locharve          #+#    #+#             */
-/*   Updated: 2024/11/02 11:26:32 by locharve         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:48:57 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,10 @@ t_err	t_cub_set_map(t_cub *cub, char **raw)
 			cub->err = smooth_map(cub, &cub->map);
 		if (!cub->err)
 			cub->err = check_map(cub, &cub->map);
+		if (!cub->err) {
+			cub->height -= 2;
+			cub->width -= 2;
+		}
 		strtab_free(avtab);
 	}
 	return (cub->err);
