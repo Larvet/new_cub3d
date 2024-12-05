@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   game_cub3d.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 13:13:28 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/03 14:43:40 by vnavarre         ###   ########.fr       */
+/*   Created: 2024/11/15 12:18:46 by vnavarre          #+#    #+#             */
+/*   Updated: 2024/12/03 11:53:20 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef GAME_CUB3D_H
+# define GAME_CUB3D_H
 
-int	main(int argc, char **argv)
-{
-	t_cub	cub;
+void	game(t_cub *cub);
+int	    check_inter(double agl, double *d, bool h);
+double	trig_agl(double agl);
+int     raycast(t_cub *cub);
+bool	wall_hit(double delta_x, double delta_y, t_cub *cub);
 
-	if (argc == 2)
-	{
-		if (!print_error(t_cub_init(&cub))
-			&& !print_error(parsing_cub(&cub, argv[1])))
-			printf("all good hollywood\n");
-		t_cub_print(&cub);
-		game(&cub);
-		t_cub_destroy(&cub);
-	}
-	return (0);
-}
+#endif
