@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/03 14:03:45 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:48:22 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ plus one character among \"NSWE\"\n"
 # define LEFT_ROTATE 79
 # define FOV 80
 # define TILE_SIZE 300
+# define IMG_SIZE 300
 
 #endif

@@ -6,11 +6,19 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:55:32 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/03 14:44:25 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:13:50 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	init_image(t_cub *cub)
+{
+	cub->game->no_img = ft_calloc(sizeof(t_image), 1);
+	cub->game->so_img = ft_calloc(sizeof(t_image), 1);
+	cub->game->ea_img = ft_calloc(sizeof(t_image), 1);
+	cub->game->we_img = ft_calloc(sizeof(t_image), 1);
+}
 
 t_err	t_cub_init(t_cub *cub)
 {

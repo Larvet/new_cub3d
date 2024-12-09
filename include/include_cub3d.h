@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:50 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/03 14:12:11 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/03 15:49:04 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <errno.h>
 # include <stdbool.h>
 # include <math.h>
-# include <mlx.h>
+# include "../minilibx-linux/mlx.h"
 
 # include "libft.h"
 # include "get_next_line.h"

@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:48:43 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/03 14:44:31 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:35:42 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,33 @@ typedef struct s_str
 	struct s_str	*next;
 }	t_str;
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		width;
+	int		height;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}				t_image;
+
 typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
-	void	*no_img;
-	void	*so_img;
-	void	*we_img;
-	void	*ea_img;
+	t_image actimg;
+	t_image	img;
+	t_image	no_img;
+	t_image	so_img;
+	t_image	we_img;
+	t_image	ea_img;
 }	t_game;
 
 typedef struct s_ray
 {
 	double	agl;
+	int		pflag;
 	double	dist;
 }	t_ray;
 

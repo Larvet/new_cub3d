@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:01:50 by vnavarre          #+#    #+#             */
-/*   Updated: 2024/12/03 14:59:27 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:06:29 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 double	trig_agl(double agl)
 {
 	if (agl < 0)
-		agl += 2 * M_PI;
-	if (agl > 2 * M_PI)
-		agl -= 2 * M_PI;
+		agl += (2 * M_PI);
+	if (agl > (2 * M_PI))
+		agl -= (2 * M_PI);
 	return (agl);
 }
 
@@ -43,11 +43,11 @@ bool	wall_hit(double delta_x, double delta_y, t_cub *cub)
 	int	x;
 	int	y;
 
-	x = floor(delta_x / TILE_SIZE);
-	y = floor(delta_y / TILE_SIZE);
 	if (delta_x <= 0 || delta_y <= 0)
 		return (true);
-	if (x >= (int)cub->width || y >= (int)cub->height || x <= 0 || y <= 0)
+	x = floor(delta_x / TILE_SIZE);
+	y = floor(delta_y / TILE_SIZE);
+	if (x + 2 >= (int)cub->width || y + 2 >= (int)cub->height || x <= 0 || y <= 0)
 		return (true);
 	if (cub->map[y] && (int)ft_strlen(cub->map[y]) > x)
 	{
