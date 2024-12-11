@@ -67,7 +67,7 @@ t_err	make_map_rectangle(char ***dst, char **src, size_t len)
 		i++;
 	}
 	(*dst)[i + 1] = make_str_with_char(len, ' ');
-	if (!dst[i + 1])
+	if (!(*dst)[i + 1])
 		return (_malloc);
 	return (_ok);
 }
