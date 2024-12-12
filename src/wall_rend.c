@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:15:33 by vnavarre          #+#    #+#             */
-/*   Updated: 2024/12/09 17:07:52 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:30:16 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_C_and_F(t_cub *cub)
 			rgb = cub->rgb[1];
 		while (x < SCREEN_W)
 		{
-			mlx_pixel_put(cub->game->mlx, cub->game->win, x, y, rgb);
+			ft_mlx_pixel_put(&cub->game->img, x, y, rgb);
 			x++;
 		}
 		y++;
@@ -71,26 +71,24 @@ void get_img2(t_cub *cub)
 
 void	draw(t_cub *cub, int t_p, int b_p, int ray)
 {
-	int 	wall_hitx;
-	int 	wall_hity;
-	double	texture_x;
-	double	texture_y;
+	double 	wall_hitx;
+	double 	wall_hity;
+	int		texture_x;
+	int		texture_y;
 	int		y;
 
-	y = 0;
-	(void)ray;
+	y = t_p;
 	wall_hitx = cub->player->px_x + cub->ray->dist * cos(cub->ray->agl);
 	wall_hity = cub->player->px_y + cub->ray->dist * sin(cub->ray->agl);
-	printf("dist = %f\n", cub->ray->dist);
-	if (cub->ray->pflag == 1)
-		texture_x = (int)wall_hitx % TILE_SIZE * IMG_SIZE / TILE_SIZE;
+	if (!cub->ray->pflag)
+		texture_x = (int)(wall_hity) % TILE_SIZE * IMG_SIZE / TILE_SIZE;
 	else
-		texture_x = (int)wall_hity % TILE_SIZE * IMG_SIZE / TILE_SIZE;
+		texture_x = (int)(wall_hitx) % TILE_SIZE * IMG_SIZE / TILE_SIZE;
 	while (y < b_p)
 	{
 		get_img2(cub);
-		texture_y = (y - t_p) * IMG_SIZE / (t_p - b_p);
-		mlx_pixel_put(cub->game->mlx, cub->game->win, texture_x, texture_y, 255);
+		texture_y = (y - t_p) * IMG_SIZE / (b_p - t_p);
+		ft_mlx_pixel_put(&cub->game->img, ray, y ,ft_mlx_get_pixel_color(&cub->game->actimg, texture_x, texture_y));
 		y++;
 	}
 }
@@ -102,7 +100,7 @@ void	render(t_cub *cub, int ray)
 	int	b_p;
 
 	cub->ray->dist *= cos(trig_agl(cub->ray->agl - cub->player->p_angle));
-	h_w = ((SCREEN_W / 2) / (tan(cub->player->fov / 2)) * (TILE_SIZE / cub->ray->dist));
+	h_w = (TILE_SIZE / cub->ray->dist) * ((SCREEN_W / 2) / tan(cub->player->fov / 2));
 	t_p = (SCREEN_H / 2) - (h_w / 2);
 	b_p = (SCREEN_H / 2) + (h_w / 2);
 	if (t_p < 0)

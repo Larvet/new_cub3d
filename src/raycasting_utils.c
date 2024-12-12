@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:01:50 by vnavarre          #+#    #+#             */
-/*   Updated: 2024/12/09 16:06:29 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/11 17:14:02 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 double	trig_agl(double agl)
 {
-	if (agl < 0)
-		agl += (2 * M_PI);
-	if (agl > (2 * M_PI))
-		agl -= (2 * M_PI);
+	 if (agl < 0)
+	 	agl += (2 * M_PI);
+	 if (agl > (2 * M_PI))
+	 	agl -= (2 * M_PI);
 	return (agl);
 }
 
@@ -26,14 +26,18 @@ int	check_inter(double agl, double *d, bool h)
 	if (h)
 	{
 		if (agl > 0 && agl < M_PI)
+		{
 			*d += TILE_SIZE;
-		return (0);
+			return (-1);
+		}
 	}
 	else
 	{
-		if (!(agl > (M_PI / 2) && agl < ((2 * M_PI) / 3)))
+		if (!(agl > (M_PI / 2) && agl < ((3 * M_PI) / 2)))
+		{
 			*d += TILE_SIZE;
-		return (0);
+			return (-1);
+		}
 	}
 	return (1);
 }
@@ -47,11 +51,11 @@ bool	wall_hit(double delta_x, double delta_y, t_cub *cub)
 		return (true);
 	x = floor(delta_x / TILE_SIZE);
 	y = floor(delta_y / TILE_SIZE);
-	if (x + 2 >= (int)cub->width || y + 2 >= (int)cub->height || x <= 0 || y <= 0)
+	if (x >= (int)cub->width || y >= (int)cub->height || x <= 0 || y <= 0)
 		return (true);
-	if (cub->map[y] && (int)ft_strlen(cub->map[y]) > x)
+	if (cub->map[y] && x <= (int)ft_strlen(cub->map[y]))
 	{
-		if (cub->map[y][x] == 1)
+		if (cub->map[y][x] == '1')
 			return (true);
 	}
 	return (false);

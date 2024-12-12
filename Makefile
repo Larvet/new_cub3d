@@ -6,7 +6,7 @@
 #    By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2024/12/03 16:00:58 by vnavarre         ###   ########.fr        #
+#    Updated: 2024/12/10 11:24:15 by vnavarre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRC = main.c \
 	game.c \
 	raycasting.c \
 	raycasting_utils.c \
-	wall_rend.c
+	wall_rend.c \
+	wall_utils.c
 	
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
