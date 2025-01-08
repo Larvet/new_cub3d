@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub_set_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:17:09 by locharve          #+#    #+#             */
 /*   Updated: 2024/12/16 14:52:49 by locharve         ###   ########.fr       */
@@ -100,11 +100,13 @@ t_err	t_cub_set_map(t_cub *cub, char **raw)
 			cub->err = smooth_map(cub, &cub->map);
 		if (!cub->err)
 			cub->err = check_map(cub, &cub->map);
-		if (!cub->err) {
+		if (!cub->err)
+		{
 			cub->height -= 2;
 			cub->width -= 2;
+    }
+		if (!cub->err) 
 			set_pos(&cub->player->px_x, &cub->player->px_y, cub->map);
-		}
 		strtab_free(avtab);
 	}
 	return (cub->err);

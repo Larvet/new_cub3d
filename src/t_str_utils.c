@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   t_str_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:15 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/28 12:45:45 by locharve         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:52:58 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	fill_p_angle(t_cub *cub, char c)
+{
+	if (c == 'N')
+		cub->player->p_angle = (3 * M_PI / 2);
+	if (c == 'S')
+		cub->player->p_angle = (M_PI / 2);
+	if (c == 'E')
+		cub->player->p_angle = (2 * M_PI);
+	if (c == 'W')
+		cub->player->p_angle = (M_PI);
+}
 
 t_str	*t_str_new(char *str)
 {

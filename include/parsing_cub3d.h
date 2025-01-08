@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_cub3d.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:56 by locharve          #+#    #+#             */
-/*   Updated: 2024/11/05 10:41:19 by locharve         ###   ########.fr       */
+/*   Updated: 2024/12/10 10:52:15 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_err	parsing_cub(t_cub *cub, char *path);
 char	*make_str_with_char(size_t len, char c);
 char	*ft_strcpy_fill(char *dst, char *src, size_t len, char fill);
 t_err	make_map_rectangle(char ***dst, char **src, size_t len);
-void	set_pos(int *p_x, int *p_y, char **map);
+void	set_pos(t_cub *cub, char **map);
 t_err	smooth_map(t_cub *cub, char ***map);
 
 /* str_utils.c */
@@ -85,6 +85,7 @@ t_err	set_rgb(int *to_set, char **raw_args, char *to_cmp);
 t_err	t_cub_set_rgb(t_cub *cub, char **raw_args);
 
 /* t_str_utils.c */
+void	fill_p_angle(t_cub *cub, char c);
 t_str	*t_str_new(char *str);
 void	t_str_addback(t_str **list, t_str *node);
 size_t	t_str_listsize(t_str *list);

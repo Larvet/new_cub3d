@@ -72,7 +72,7 @@ t_err	make_map_rectangle(char ***dst, char **src, size_t len)
 	return (_ok);
 }
 
-void	set_pos(int *p_x, int *p_y, char **map)
+void	set_pos(t_cub *cub, char **map)
 {
 	int	x;
 	int	y;
@@ -84,8 +84,11 @@ void	set_pos(int *p_x, int *p_y, char **map)
 	while (map && map[y] && map[y][x]
 		&& is_in_str("NSWE", map[y][x]) < 0)
 		x++;
-	*p_x = x;
-	*p_y = y;
+	fill_p_angle(cub, map[y][x]);
+	cub->player->x = x;
+	cub->player->y = y;
+	cub->player->px_x = x * TILE_SIZE + TILE_SIZE / 2;
+	cub->player->px_y = y * TILE_SIZE + TILE_SIZE / 2;
 }
 
 t_err	smooth_map(t_cub *cub, char ***map)

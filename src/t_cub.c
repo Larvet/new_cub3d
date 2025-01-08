@@ -6,11 +6,19 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:55:32 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/03 14:44:25 by vnavarre         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:09:40 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+/*void	init_image(t_cub *cub)
+{
+	cub->game->no_img = ft_calloc(sizeof(t_image), 1);
+	cub->game->so_img = ft_calloc(sizeof(t_image), 1);
+	cub->game->ea_img = ft_calloc(sizeof(t_image), 1);
+	cub->game->we_img = ft_calloc(sizeof(t_image), 1);
+}*/
 
 t_err	t_cub_init(t_cub *cub)
 {
@@ -57,9 +65,30 @@ void	t_cub_print(t_cub *cub)
 
 void	t_cub_destroy(t_cub *cub)
 {
-	strtab_free(cub->raw);
-	free(cub->raw_args);
-	strtab_free(cub->path);
-	strtab_free(cub->map);
-	free(cub->player);
+	if (cub->game->win)
+	{
+		mlx_clear_window(cub->game->mlx, cub->game->win);
+		mlx_destroy_window(cub->game->mlx, cub->game->win);
+	}
+	if (cub->game->img.img)
+		mlx_destroy_image(cub->game->mlx, cub->game->img.img);
+	if (cub->game->no_img.img)
+		mlx_destroy_image(cub->game->mlx, cub->game->no_img.img);
+	if (cub->game->ea_img.img)
+		mlx_destroy_image(cub->game->mlx, cub->game->ea_img.img);
+	if (cub->game->so_img.img)
+		mlx_destroy_image(cub->game->mlx, cub->game->so_img.img);
+	if (cub->game->we_img.img)
+		mlx_destroy_image(cub->game->mlx, cub->game->we_img.img);
+	if (cub->raw)
+		strtab_free(cub->raw);
+	if (cub->raw_args)
+		free(cub->raw_args);
+	if (cub->path)
+		strtab_free(cub->path);
+	if (cub->map)
+		strtab_free(cub->map);
+	if (cub->player)
+		free(cub->player);
+	exit(0);
 }

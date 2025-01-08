@@ -1,8 +1,8 @@
 C 225,30,0
-NO ./textures/NO_example_path    
-SO ./textures/SO_example_path            
-WE ./textures/WE_example_path
-EA ./textures/EA_example_path
+NO ./textures/texture_wall.xpm
+SO ./textures/texture_wall.xpm
+WE ./textures/texture_wall.xpm
+EA ./textures/texture_wall.xpm
 
 
 
