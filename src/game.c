@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:41:19 by vnavarre          #+#    #+#             */
-/*   Updated: 2024/12/12 11:14:15 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:42:03 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,65 @@ int	close_cub(void *param)
 	return (0);
 }
 
+void	key_hook_move(int keycode, t_cub *cub)
+{
+	// probleme: le joueur se deplace trop avec + ou - 1
+	// > mettre en double ?
+	if (keycode == 119)
+	{
+		cub->player->x += 1;
+		cub->player->px_x = cub->player->x * TILE_SIZE + TILE_SIZE / 2;
+	}
+	else if (keycode == 97)
+	{
+		cub->player->y -= 1;
+		cub->player->px_y = cub->player->y * TILE_SIZE + TILE_SIZE / 2;	
+	}
+	else if (keycode == 115)
+	{
+		cub->player->x -= 1;
+		cub->player->px_x = cub->player->x * TILE_SIZE + TILE_SIZE / 2;	
+	}
+	else if (keycode == 100)
+	{
+		cub->player->y += 1;
+		cub->player->px_y = cub->player->y * TILE_SIZE + TILE_SIZE / 2;	
+	}
+}
+
+void	key_hook_rotate(int keycode, t_cub *cub)
+{
+	if (keycode == 65361)
+	{
+		cub->player->p_angle -= 0.05;
+	}
+	else if (keycode == 65363)
+	{
+		cub->player->p_angle += 0.05;
+	}
+}
+
 int	key_hook(int keycode, t_cub *cub)
 {
-	if (keycode == 65307)
+	// W 119 XK_W
+	// A 97 XK_A
+	// S 115 XK_S
+	// D 100 XK_D
+	
+	// up 65362 XK_Up // OSEF
+	// left 65361 XK_Left
+	// down 65364 XK_Down // OSEF
+	// right 65363 XK_Right
+	
+//	printf("keycode = %d\n", keycode);
+	if (keycode == 65307) { // XK_Escape	
 		t_cub_destroy(cub);
+	}
+	else if (keycode == 119 || keycode == 97
+		|| keycode == 115 || keycode == 100)
+		key_hook_move(keycode, cub);
+	else if (keycode == 65361 || keycode == 65363)
+		key_hook_rotate(keycode, cub);
 	return (0);
 }
 
@@ -74,8 +129,8 @@ int	game_start(void *param)
 		mlx_destroy_image(cub->game->mlx, cub->game->img.img);
 	//mlx_clear_window(cub->game->mlx, cub->game->win);
 	creat_image(&cub->game->img, cub->game->mlx, SCREEN_W, SCREEN_H);
-	print_C_and_F(cub);  
-	mlx_key_hook(cub->game->win, key_hook, cub);
+	print_C_and_F(cub); 
+///	mlx_key_hook(cub->game->win, key_hook, cub);
 	//mlx_mouse_hook(cub->game->win, mouse_hook, cub);
 	//mlx_expose_hook(cub->game->win, expose_hook, cub);
 	raycast(cub);
@@ -99,6 +154,8 @@ void	game(t_cub *cub)
 	get_img(&cub->game->ea_img, cub, cub->path[3]);
 	mlx_mouse_hide(cub->game->mlx, cub->game->win);
 	mlx_hook(cub->game->win, 17, 4, close_cub, cub);
+//	mlx_key_hook(cub->game->win, key_hook, cub); //////
+	mlx_hook(cub->game->win, 2, 1L<<0, key_hook, cub);
 	mlx_loop_hook(cub->game->mlx, game_start, cub);
 	mlx_loop(cub->game->mlx);
 }
