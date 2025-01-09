@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:55:32 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/11 11:09:40 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/09 09:44:25 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,10 @@ void	t_cub_destroy(t_cub *cub)
 		strtab_free(cub->map);
 	if (cub->player)
 		free(cub->player);
+//	free(cub->game->win);
+	free(cub->ray);
+	mlx_destroy_display(cub->game->mlx);
+	free(cub->game->mlx); //
+	free(cub->game);
 	exit(0);
 }
