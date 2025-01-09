@@ -57,6 +57,8 @@ typedef struct s_player
 	int		y;
 	double	fov;
 	double	p_angle;
+
+	double	dir_vector; //////
 }	t_player;
 
 typedef struct s_cub

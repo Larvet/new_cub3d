@@ -25,6 +25,8 @@ void	key_hook_move(int keycode, t_cub *cub)
 {
 	// probleme: le joueur se deplace trop avec + ou - 1
 	// > mettre en double ?
+	// > prendre en compte la direction du joueur !!!!
+	// > incrementer/decrementer px_x et px_y au lieu de x et y
 	if (keycode == 119)
 	{
 		cub->player->x += 1;
