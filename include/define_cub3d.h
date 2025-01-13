@@ -46,4 +46,10 @@ plus one character among \"NSWE\"\n"
 # define TILE_SIZE 300
 # define IMG_SIZE 300
 
+# define PI 3.141593
+# define N_DIR (PI / 2)
+# define S_DIR (3 * PI / 2)
+# define W_DIR PI
+# define E_DIR (2 * PI)
+
 #endif
