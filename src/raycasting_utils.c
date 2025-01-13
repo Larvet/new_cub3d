@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:01:50 by vnavarre          #+#    #+#             */
-/*   Updated: 2024/12/11 17:14:02 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:48:44 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ bool	wall_hit(double delta_x, double delta_y, t_cub *cub)
 	if (x >= (int)cub->width || y >= (int)cub->height || x <= 0 || y <= 0)
 		return (true);
 	if (cub->map[y] && x <= (int)ft_strlen(cub->map[y]))
-	{
 		if (cub->map[y][x] == '1')
 			return (true);
-	}
 	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:48:43 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/09 14:35:42 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/09 13:50:45 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ typedef struct s_ray
 
 typedef struct s_player
 {
-	int		px_x;
-	int		px_y;
+	double	px_x;
+	double	px_y;
 	int		x;
 	int		y;
 	double	fov;
