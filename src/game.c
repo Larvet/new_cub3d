@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:41:19 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/09 16:21:20 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:28:22 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	key_hook_move(int keycode, t_cub *cub)
 void	key_hook_rotate(int keycode, t_cub *cub)
 {
 	if (keycode == 65361)
-	{
 		cub->player->p_angle -= 0.05;
-	}
 	else if (keycode == 65363)
-	{
 		cub->player->p_angle += 0.05;
-	}
+	if (cub->player->p_angle < 0)
+		cub->player->p_angle += 2 * M_PI;
+	else if (cub->player->p_angle > 2 * M_PI)
+		cub->player->p_angle -= 2 * M_PI;
 }
 
 int	key_hook(int keycode, t_cub *cub)

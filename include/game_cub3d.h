@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:18:46 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/09 16:00:58 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:24:49 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ void	render(t_cub *cub, int ray);
 void	creat_image(t_image *img, void *mlx, int width, int height);
 void	move_front(t_cub *cub, bool dir);
 void	move_side(t_cub *cub, bool dir);
+bool	check_npx(t_cub *cub, double old_p, double new_p);
+bool	check_npy(t_cub *cub, double old_p, double new_p);
 
 #endif
