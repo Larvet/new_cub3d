@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_cub3d.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:48:43 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/09 13:50:45 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:13:17 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ typedef struct s_player
 	int		y;
 	double	fov;
 	double	p_angle;
-
-	double	dir_vector; //////
 }	t_player;
 
 typedef struct s_cub

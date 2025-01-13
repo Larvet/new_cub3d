@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 07:57:17 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 14:27:02 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:13:46 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,33 +65,6 @@ t_err	t_cub_set_raw_args(t_cub *cub, char **raw)
 	return (cub->err);
 }
 
-double	get_dir_vector(char** map)
-{
-	int	i;
-	int	j;
-	char	c;
-
-	i = 0;
-	while (map && map[i])
-	{
-		j = 0;
-		while (map[i][j] && is_in_str("NSWE", map[i][j]) < 0)
-			j++;
-		if (map[i][j])
-			break ;
-		i++;
-	}
-	c = map[i][j];
-	if (c == 'N')
-		return (N_DIR); // (PI / 2);
-	else if (c == 'S')
-		return (S_DIR); // (3 * PI / 2);
-	else if (c == 'W')
-		return (W_DIR); // (PI);
-	else
-		return (E_DIR); // (2 * PI);
-}
-
 t_err	t_cub_raw_parse(t_cub *cub)
 {
 	if (!t_cub_set_raw_args(cub, cub->raw)
@@ -99,8 +72,7 @@ t_err	t_cub_raw_parse(t_cub *cub)
 		&& !t_cub_set_rgb(cub, cub->raw_args)
 		&& !t_cub_set_map(cub, cub->raw))
 	{
-		cub->player->dir_vector = get_dir_vector(cub->map);
-		printf("okkkkkkkk\tplayer dir = %f\n", cub->player->dir_vector); //
+		printf("okkkkkkkk\n"); //
 	}
 	return (cub->err);
 }
