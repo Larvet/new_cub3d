@@ -1,10 +1,10 @@
-SO ./textures/texture_wall.xpm
-NO ./textures/texture_wall.xpm
-WE ./textures/texture_wall.xpm
-EA ./textures/texture_wall.xpm
+SO ./textures/wall.xpm
+NO ./textures/wall1.xpm
+WE ./textures/wall2.xpm
+EA ./textures/wall3.xpm
 
 F 150, 180, 190
-C 150, 50, 250
+C 104, 106, 108
 
         1111111111111111111111111
         1000000000110000000000001

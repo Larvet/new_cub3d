@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:41:19 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/09 09:39:53 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:21:20 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,25 @@ void	key_hook_move(int keycode, t_cub *cub)
 {
 	// probleme: le joueur se deplace trop avec + ou - 1
 	// > mettre en double ?
-	if (keycode == 119)
+	if (keycode == 119) // W
 	{
 		cub->player->x += 1;
-		cub->player->px_x = cub->player->x * TILE_SIZE + TILE_SIZE / 2;
+		move_front(cub, true);
 	}
-	else if (keycode == 97)
+	else if (keycode == 97) // A
 	{
 		cub->player->y -= 1;
-		cub->player->px_y = cub->player->y * TILE_SIZE + TILE_SIZE / 2;	
+		move_side(cub, false);
 	}
-	else if (keycode == 115)
+	else if (keycode == 115) // S
 	{
 		cub->player->x -= 1;
-		cub->player->px_x = cub->player->x * TILE_SIZE + TILE_SIZE / 2;	
+		move_front(cub, false);	
 	}
-	else if (keycode == 100)
+	else if (keycode == 100) // D
 	{
 		cub->player->y += 1;
-		cub->player->px_y = cub->player->y * TILE_SIZE + TILE_SIZE / 2;	
+		move_side(cub, true);
 	}
 }
 
