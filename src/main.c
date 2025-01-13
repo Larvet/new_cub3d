@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:13:28 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/09 15:04:31 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:59:30 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	main(int argc, char **argv)
 	{
 		if (!print_error(t_cub_init(&cub))
 			&& !print_error(parsing_cub(&cub, argv[1])))
-			printf("all good hollywood\n");
-		//t_cub_print(&cub);
-		game(&cub);
-		t_cub_destroy(&cub);
+		{
+			game(&cub);
+			t_cub_destroy(&cub);
+		}
 	}
 	return (0);
 }
