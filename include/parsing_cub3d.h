@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_cub3d.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:56 by locharve          #+#    #+#             */
-/*   Updated: 2024/12/10 10:52:15 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:28:53 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	set_pos(t_cub *cub, char **map);
 t_err	smooth_map(t_cub *cub, char ***map);
 
 /* str_utils.c */
-int	is_in_str(char *str, char c);
-int	str_isonly(const char *str, char *set);
-int	str_contains(const char *str, char *set);
-int	str_contains_n(const char *str, char *set);
+int		is_in_str(char *str, char c);
+int		str_isonly(const char *str, char *set);
+int		str_contains(const char *str, char *set);
+int		str_contains_n(const char *str, char *set);
 
 /* str_utils.c */
-int	skip_incharset(char *str, char *set);
-int	skip_outcharset(char *str, char *set);
+int		skip_incharset(char *str, char *set);
+int		skip_outcharset(char *str, char *set);
 
 /* strtab_utils.c */
 size_t	strtab_max_len(char **strtab);
@@ -52,8 +52,8 @@ void	strtab_free(char **strtab);
 char	**strtab_init(size_t size, ...);
 
 /* strtab_utils2.c */
-int	skip_empty_lines(char **strtab);
-int	is_in_strtab(char **tab, char *str);
+int		skip_empty_lines(char **strtab);
+int		is_in_strtab(char **tab, char *str);
 char	**strtab_replace(char **strtab, char to_find, char to_replace);
 
 /* t_cub.c */

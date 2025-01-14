@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 14:05:23 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:31:03 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,5 @@ plus one character among \"NSWE\"\n"
 # define FOV 60
 # define TILE_SIZE 300
 # define IMG_SIZE 300
-
-# define PI 3.141593
-# define N_DIR (PI / 2)
-# define S_DIR (3 * PI / 2)
-# define W_DIR PI
-# define E_DIR (2 * PI)
 
 #endif

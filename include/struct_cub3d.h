@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:48:43 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/13 15:13:17 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:29:42 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
-	t_image actimg;
+	t_image	actimg;
 	t_image	img;
 	t_image	no_img;
 	t_image	so_img;
@@ -61,24 +61,17 @@ typedef struct s_player
 
 typedef struct s_cub
 {
-	char		**raw;		// raw file
-	char		**raw_args;	// contains textures and rgb
-
-	/* ready to use */
-	char		**path;		// checked textures paths ; NO, SO, EA, WE
-	int			rgb[2];		// parsed rgb: F == 1; C == 0
-	char		**map;		// map with every line at same length
-
-	size_t		width;		// width and height of map (rectangle)
+	char		**raw;
+	char		**raw_args;
+	char		**path;
+	int			rgb[2];
+	char		**map;
+	size_t		width;
 	size_t		height;
-
-	t_err		err;		// error enum
-
-	/* game */
+	t_err		err;
 	t_player	*player;
 	t_game		*game;
 	t_ray		*ray;
 }	t_cub;
-
 
 #endif
