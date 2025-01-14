@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:12:53 by locharve          #+#    #+#             */
-/*   Updated: 2024/11/02 11:45:02 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:52:48 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_err	crop_and_check_path(char **new_path, char *raw_path)
 	*new_path = ft_strndup(raw_path, i);
 	if (!new_path)
 		return (_malloc);
+	if (extension_check(new_path, ".xpm"))
+		return (_badext);
 	if (is_path_dir(*new_path))
 		return (_isdir);
 	fd = open(*new_path, O_RDONLY);
