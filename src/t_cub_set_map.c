@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub_set_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:17:09 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 11:14:19 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:04:37 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_err	check_raw_map(char **map)
 {
 	int	i;
 	int	j;
+	int	nswe_tmp;
 	int	nswe_count;
 
 	i = 0;
@@ -45,10 +46,11 @@ t_err	check_raw_map(char **map)
 	while (map && map[i] && nswe_count <= 1
 		&& !str_isonly(map[i], WHITESPACES))
 	{
-		if (str_contains(map[i], "NSWE"))
+		nswe_tmp = str_contains(map[i], "NSWE");
+		if (nswe_tmp == 1)
 			nswe_count++;
-		else if (!str_isonly(map[i], "01 \n"))
-			break ;
+		else if (nswe_tmp > 1 || !str_isonly(map[i], "01 \n"))
+			return (_invalidmap);
 		i++;
 	}
 	if (i == j || nswe_count != 1)
