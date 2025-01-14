@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:13:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 11:23:53 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:06:02 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(int argc, char **argv)
 			&& !print_error(parsing_cub(&cub, argv[1])))
 		{
 			game(&cub);
-			t_cub_destroy(&cub);
 		}
+		t_cub_destroy(&cub);
 	}
 	else
 			print_error(_invalidf);

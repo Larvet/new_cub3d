@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:41:19 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 11:05:50 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:51:52 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int	game_start(void *param)
 
 void	game(t_cub *cub)
 {
-	cub->game = ft_calloc(1, sizeof(t_game));
+//	cub->game = ft_calloc(1, sizeof(t_game)); //////
 	//init_image(cub);
 	cub->game->mlx = mlx_init();
 	if (!cub->game->mlx)
