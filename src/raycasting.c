@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:12:21 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/09 14:51:31 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:00:28 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	x_step_sign(double agl, double *x_step)
 	}
 }
 
-double  h_distance(t_cub *cub, double agl)
+double	h_distance(t_cub *cub, double agl)
 {
 	double	x_step;
 	double	y_step;
@@ -60,10 +60,11 @@ double  h_distance(t_cub *cub, double agl)
 		delta_x += x_step;
 		delta_y += y_step;
 	}
-	return (sqrt(pow(delta_x - cub->player->px_x, 2) + pow(delta_y - cub->player->px_y, 2)));
+	return (sqrt(pow(delta_x - cub->player->px_x, 2)
+			+ pow(delta_y - cub->player->px_y, 2)));
 }
 
-double  v_distance(t_cub *cub, double agl)
+double	v_distance(t_cub *cub, double agl)
 {
 	double	x_step;
 	double	y_step;
@@ -78,15 +79,16 @@ double  v_distance(t_cub *cub, double agl)
 	delta_y = cub->player->px_y + (delta_x - cub->player->px_x) * tan(agl);
 	x_step_sign(agl, &x_step);
 	y_step_sign(agl, &y_step);
-	while (!wall_hit(delta_x - dp , delta_y, cub))
+	while (!wall_hit(delta_x - dp, delta_y, cub))
 	{
 		delta_x += x_step;
 		delta_y += y_step;
 	}
-	return (sqrt(pow(delta_x - cub->player->px_x, 2) + pow(delta_y - cub->player->px_y, 2)));
+	return (sqrt(pow(delta_x - cub->player->px_x, 2)
+			+ pow(delta_y - cub->player->px_y, 2)));
 }
 
-int raycast(t_cub *cub)
+int	raycast(t_cub *cub)
 {
 	int		ray;
 	double	v_dist;

@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:01:50 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/09 14:48:44 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:01:01 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 double	trig_agl(double agl)
 {
-	 if (agl < 0)
-	 	agl += (2 * M_PI);
-	 if (agl > (2 * M_PI))
-	 	agl -= (2 * M_PI);
+	if (agl < 0)
+		agl += (2 * M_PI);
+	if (agl > (2 * M_PI))
+		agl -= (2 * M_PI);
 	return (agl);
 }
 

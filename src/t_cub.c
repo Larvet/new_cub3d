@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:55:32 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/09 09:44:25 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:03:00 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,19 @@ void	t_cub_print(t_cub *cub)
 	strtab_print(cub->map);
 }
 
+static void	destroy_next(t_cub *cub)
+{
+	if (cub->map)
+		strtab_free(cub->map);
+	if (cub->player)
+		free(cub->player);
+	free(cub->ray);
+	mlx_destroy_display(cub->game->mlx);
+	free(cub->game->mlx);
+	free(cub->game);
+	exit(0);
+}
+
 void	t_cub_destroy(t_cub *cub)
 {
 	if (cub->game->win)
@@ -86,14 +99,5 @@ void	t_cub_destroy(t_cub *cub)
 		free(cub->raw_args);
 	if (cub->path)
 		strtab_free(cub->path);
-	if (cub->map)
-		strtab_free(cub->map);
-	if (cub->player)
-		free(cub->player);
-//	free(cub->game->win);
-	free(cub->ray);
-	mlx_destroy_display(cub->game->mlx);
-	free(cub->game->mlx); //
-	free(cub->game);
-	exit(0);
+	destroy_next(cub);
 }

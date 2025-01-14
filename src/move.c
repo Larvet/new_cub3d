@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:53:05 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/13 15:31:44 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:58:04 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	move_front(t_cub *cub, bool dir)
 {
-	double  move_x;
-	double  move_y;
+	double	move_x;
+	double	move_y;
 	double	npx;
 	double	npy;
 
@@ -41,13 +41,13 @@ void	move_front(t_cub *cub, bool dir)
 
 void	move_side(t_cub *cub, bool dir)
 {
-	double  move_x;
-	double  move_y;
+	double	move_x;
+	double	move_y;
 	double	npx;
 	double	npy;
 
-	move_x = cos(cub->player->p_angle + M_PI / 2) * 25;
-	move_y = sin(cub->player->p_angle + M_PI / 2) * 25;
+	move_x = cos(cub->player->p_angle + M_PI / 2) * 50;
+	move_y = sin(cub->player->p_angle + M_PI / 2) * 50;
 	npx = cub->player->px_x;
 	npy = cub->player->px_y;
 	if (dir)

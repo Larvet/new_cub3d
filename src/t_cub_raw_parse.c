@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub_raw_parse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 07:57:17 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/13 15:13:46 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:03:30 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_err	t_cub_raw_parse(t_cub *cub)
 		&& !t_cub_set_rgb(cub, cub->raw_args)
 		&& !t_cub_set_map(cub, cub->raw))
 	{
-		printf("okkkkkkkk\n"); //
+		printf("okkkkkkkk\n");
 	}
 	return (cub->err);
 }

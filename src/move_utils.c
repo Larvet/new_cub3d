@@ -6,19 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:21 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/13 15:25:23 by vnavarre         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   move_utils.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 14:52:14 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/13 15:09:34 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:58:33 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +18,9 @@ bool	check_npx(t_cub *cub, double old_p, double new_p)
 	int	y;
 	int	buff;
 
-	x = (int)cub->player->px_x / TILE_SIZE;
+	x = 0;
 	y = (int)cub->player->px_y / TILE_SIZE;
-	buff = TILE_SIZE;
+	buff = 200;
 	if (new_p >= old_p)
 	{
 		x = (int)((new_p + buff) / TILE_SIZE);
@@ -57,7 +45,7 @@ bool	check_npy(t_cub *cub, double old_p, double new_p)
 	int	buff;
 
 	x = (int)cub->player->px_x / TILE_SIZE;
-	y = (int)cub->player->px_y / TILE_SIZE;
+	y = 0;
 	buff = TILE_SIZE / 4;
 	if (new_p >= old_p)
 	{

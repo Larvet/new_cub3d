@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:13:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/13 15:59:30 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:23:53 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	main(int argc, char **argv)
 			t_cub_destroy(&cub);
 		}
 	}
+	else
+			print_error(_invalidf);
 	return (0);
 }

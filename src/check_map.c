@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 08:59:07 by locharve          #+#    #+#             */
-/*   Updated: 2024/11/05 10:40:27 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 10:51:28 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_err	crop_map(char ***map, size_t width, size_t height)
 	char	**new_map;
 	size_t	i;
 
-	new_map = ft_calloc(height -2 + 1, sizeof(char*));
+	new_map = ft_calloc(height - 2 + 1, sizeof(char *));
 	if (!new_map)
 		return (_malloc);
 	i = 0;

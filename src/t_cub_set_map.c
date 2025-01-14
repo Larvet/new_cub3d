@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub_set_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:17:09 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/08 10:39:50 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:14:19 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,18 @@ t_err	set_map(char ***map, char **raw)
 	return (_ok);
 }
 
+void	t_cub_set_map_next(t_cub *cub, char **avtab)
+{
+	if (!cub->err)
+	{
+		cub->height -= 2;
+		cub->width -= 2;
+	}
+	if (!cub->err)
+		set_pos(cub, cub->map);
+	strtab_free(avtab);
+}
+
 t_err	t_cub_set_map(t_cub *cub, char **raw)
 {
 	char	**avtab;
@@ -100,14 +112,7 @@ t_err	t_cub_set_map(t_cub *cub, char **raw)
 			cub->err = smooth_map(cub, &cub->map);
 		if (!cub->err)
 			cub->err = check_map(cub, &cub->map);
-		if (!cub->err)
-		{
-			cub->height -= 2;
-			cub->width -= 2;
-    }
-		if (!cub->err) 
-			set_pos(cub, cub->map);
-		strtab_free(avtab);
+		t_cub_set_map_next(cub, avtab);
 	}
 	return (cub->err);
 }

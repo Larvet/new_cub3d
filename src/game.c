@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:41:19 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/13 15:28:22 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:05:50 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,22 @@ int	close_cub(void *param)
 
 void	key_hook_move(int keycode, t_cub *cub)
 {
-	// probleme: le joueur se deplace trop avec + ou - 1
-	// > mettre en double ?
 	if (keycode == 119)
 	{
 		cub->player->x += 1;
 		move_front(cub, true);
 	}
-	else if (keycode == 97) // A
+	else if (keycode == 97)
 	{
 		cub->player->y -= 1;
 		move_side(cub, false);
 	}
-	else if (keycode == 115) // S
+	else if (keycode == 115)
 	{
 		cub->player->x -= 1;
-		move_front(cub, false);	
+		move_front(cub, false);
 	}
-	else if (keycode == 100) // D
+	else if (keycode == 100)
 	{
 		cub->player->y += 1;
 		move_side(cub, true);
@@ -65,14 +63,13 @@ int	key_hook(int keycode, t_cub *cub)
 	// A 97 XK_A
 	// S 115 XK_S
 	// D 100 XK_D
-	
 	// up 65362 XK_Up // OSEF
 	// left 65361 XK_Left
 	// down 65364 XK_Down // OSEF
 	// right 65363 XK_Right
-	
 //	printf("keycode = %d\n", keycode);
-	if (keycode == 65307) { // XK_Escape	
+	if (keycode == 65307)
+	{ // XK_Escape	
 		t_cub_destroy(cub);
 	}
 	else if (keycode == 119 || keycode == 97
@@ -85,12 +82,14 @@ int	key_hook(int keycode, t_cub *cub)
 
 int	get_img(t_image *dst, t_cub *cub, char *path)
 {
-	if(dst->img)
+	if (dst->img)
 		return (-1);
-	dst->img = mlx_xpm_file_to_image(cub->game->mlx, path, &dst->width, &dst->height);
+	dst->img = mlx_xpm_file_to_image(cub->game->mlx,
+			path, &dst->width, &dst->height);
 	if (!dst->img)
 		return (-1);
-	dst->addr = mlx_get_data_addr(dst->img, &dst->bpp, &dst->line_len, &dst->endian);
+	dst->addr = mlx_get_data_addr(dst->img,
+			&dst->bpp, &dst->line_len, &dst->endian);
 	return (0);
 }
 
@@ -124,17 +123,18 @@ int	game_start(void *param)
 {
 	t_cub	*cub;
 
-	cub = (t_cub*)param;
+	cub = (t_cub *)param;
 	if (cub->game->img.img)
 		mlx_destroy_image(cub->game->mlx, cub->game->img.img);
 	//mlx_clear_window(cub->game->mlx, cub->game->win);
 	creat_image(&cub->game->img, cub->game->mlx, SCREEN_W, SCREEN_H);
-	print_C_and_F(cub); 
+	print_c_and_f(cub);
 ///	mlx_key_hook(cub->game->win, key_hook, cub);
 	//mlx_mouse_hook(cub->game->win, mouse_hook, cub);
 	//mlx_expose_hook(cub->game->win, expose_hook, cub);
 	raycast(cub);
-	mlx_put_image_to_window(cub->game->mlx, cub->game->win, cub->game->img.img, 0, 0);
+	mlx_put_image_to_window(cub->game->mlx,
+		cub->game->win, cub->game->img.img, 0, 0);
 	return (0);
 }
 
@@ -145,7 +145,8 @@ void	game(t_cub *cub)
 	cub->game->mlx = mlx_init();
 	if (!cub->game->mlx)
 		return ;
-	cub->game->win = mlx_new_window(cub->game->mlx, SCREEN_W, SCREEN_H, "cub3d");
+	cub->game->win = mlx_new_window(cub->game->mlx,
+			SCREEN_W, SCREEN_H, "cub3d");
 	if (!cub->game->win)
 		return ;
 	get_img(&cub->game->no_img, cub, cub->path[0]);
