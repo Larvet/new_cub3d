@@ -65,3 +65,31 @@ void	move_side(t_cub *cub, bool dir)
 	if (check_npy(cub, cub->player->px_y, npy))
 		cub->player->px_y = npy;
 }
+
+void	rotate(t_cub *cub)
+{
+	if (cub->player->move[_leftrotate])
+		cub->player->p_angle -= 0.05;
+	else if (cub->player->move[_rightrotate])
+		cub->player->p_angle += 0.05;
+	if (cub->player->p_angle < 0)
+		cub->player->p_angle += 2 * M_PI;
+	else if (cub->player->p_angle > 2 * M_PI)
+		cub->player->p_angle -= 2 * M_PI;
+}
+
+void	move(t_cub *cub)
+{
+	if (cub->player->move[_up])
+		move_front(cub, true);
+	if (cub->player->move[_down])
+		move_front(cub, false);
+	if (cub->player->move[_leftside])
+		move_side(cub, false);
+	if (cub->player->move[_rightside])
+		move_side(cub, true);
+	if (cub->player->move[_leftrotate])
+		rotate(cub);
+	if (cub->player->move[_rightrotate])
+		rotate(cub);
+}

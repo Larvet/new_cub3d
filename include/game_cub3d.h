@@ -26,8 +26,10 @@ void	get_img2(t_cub *cub);
 void	move_side(t_cub *cub, bool dir);
 bool	check_npx(t_cub *cub, double old_p, double new_p);
 bool	check_npy(t_cub *cub, double old_p, double new_p);
-void	key_hook_move(int keycode, t_cub *cub);
-void	key_hook_rotate(int keycode, t_cub *cub);
-int		key_hook(int keycode, t_cub *cub);
+
+int		key_hook_true(int keycode, t_cub *cub);
+int		key_hook_false(int keycode, t_cub *cub);
+void	rotate(t_cub *cub);
+void	move(t_cub *cub);
 
 #endif

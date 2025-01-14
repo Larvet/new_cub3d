@@ -41,6 +41,7 @@ int	game_start(void *param)
 	cub = (t_cub *)param;
 	if (cub->game->img.img)
 		mlx_destroy_image(cub->game->mlx, cub->game->img.img);
+	move(cub);
 	creat_image(&cub->game->img, cub->game->mlx, SCREEN_W, SCREEN_H);
 	print_c_and_f(cub);
 	raycast(cub);
@@ -67,7 +68,8 @@ void	game(t_cub *cub)
 	if (!cub->game->win)
 		return ;
 	mlx_hook(cub->game->win, 17, 4, close_cub, cub);
-	mlx_hook(cub->game->win, 2, 1L << 0, key_hook, cub);
+	mlx_hook(cub->game->win, 2, 1L << 0, key_hook_true, cub);
+	mlx_hook(cub->game->win, 3, 1L << 1, key_hook_false, cub);
 	mlx_loop_hook(cub->game->mlx, game_start, cub);
 	mlx_loop(cub->game->mlx);
 }

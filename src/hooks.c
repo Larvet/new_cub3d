@@ -12,38 +12,38 @@
 
 #include "cub3d.h"
 
-void	key_hook_move(int keycode, t_cub *cub)
+void	set_keybool(t_cub *cub, int keycode, bool b)
 {
-	if (keycode == UP)
-		move_front(cub, true);
-	else if (keycode == LEFT)
-		move_side(cub, false);
-	else if (keycode == DOWN)
-		move_front(cub, false);
-	else if (keycode == RIGHT)
-		move_side(cub, true);
+	if (keycode == 119)
+		cub->player->move[_up] = b;
+	if (keycode == 97)
+		cub->player->move[_leftside] = b;
+	if (keycode == 115)
+		cub->player->move[_down] = b;
+	if (keycode == 100)
+		cub->player->move[_rightside] = b;
+	if (keycode == 65361)
+		cub->player->move[_leftrotate] = b;
+	if (keycode == 65363)
+		cub->player->move[_rightrotate] = b;
 }
 
-void	key_hook_rotate(int keycode, t_cub *cub)
-{
-	if (keycode == LEFT_ROTATE)
-		cub->player->p_angle -= 0.05;
-	else if (keycode == RIGHT_ROTATE)
-		cub->player->p_angle += 0.05;
-	if (cub->player->p_angle < 0)
-		cub->player->p_angle += 2 * M_PI;
-	else if (cub->player->p_angle > 2 * M_PI)
-		cub->player->p_angle -= 2 * M_PI;
-}
-
-int	key_hook(int keycode, t_cub *cub)
+int	key_hook_true(int keycode, t_cub *cub)
 {
 	if (keycode == 65307)
 		t_cub_destroy(cub);
-	else if (keycode == 119 || keycode == 97
-		|| keycode == 115 || keycode == 100)
-		key_hook_move(keycode, cub);
-	else if (keycode == 65361 || keycode == 65363)
-		key_hook_rotate(keycode, cub);
+	if (keycode == 119 || keycode == 97 || keycode == 115
+		|| keycode == 100 || keycode == 65361 || keycode == 65363)
+		set_keybool(cub, keycode, true);
+	return (0);
+}
+
+int	key_hook_false(int keycode, t_cub *cub)
+{
+	if (keycode == 65307)
+		t_cub_destroy(cub);
+	if (keycode == 119 || keycode == 97 || keycode == 115
+		|| keycode == 100 || keycode == 65361 || keycode == 65363)
+		set_keybool(cub, keycode, false);
 	return (0);
 }

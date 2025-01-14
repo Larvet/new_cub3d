@@ -1,7 +1,7 @@
 SO ./textures/black.xpm
 NO ./textures/red.xpm
 WE ./textures/blue.xpm
-EA ./textures/green.jpg
+EA ./textures/green.xpm
 
 F 150, 180, 190
 C 104, 106, 108

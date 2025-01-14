@@ -57,6 +57,7 @@ typedef struct s_player
 	int		y;
 	double	fov;
 	double	p_angle;
+	bool	move[6];
 }	t_player;
 
 typedef struct s_cub
