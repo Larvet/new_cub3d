@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 08:06:24 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 14:28:07 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:08:23 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef enum e_err
 	_invalidf,
 	_invalidrgb,
 	_invalidmap,
-	_unclosedmap
+	_unclosedmap,
+	_badtexture
 }	t_err;
 
 typedef enum e_arg_id
@@ -39,5 +40,15 @@ typedef enum e_arg_id
 	_f,
 	_c
 }	t_arg_id;
+
+typedef enum e_move
+{
+	_up,
+	_down,
+	_leftside,
+	_rightside,
+	_leftrotate,
+	_rightrotate
+}	t_move;
 
 #endif

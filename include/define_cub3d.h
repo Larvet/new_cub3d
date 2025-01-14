@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 14:31:03 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:08:18 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define WHITESPACES "\t\n\v\f\r "
 
-# define NBR_ERROR 12 // mettre a jour avec le nombre de t_err
+# define NBR_ERROR 13 // mettre a jour avec le nombre de t_err
 
 # define ERR_MALLOC "Memory allocation failed\n"
 # define ERR_BADARG "The program needs one argument to launch\n"
@@ -34,6 +34,7 @@ path/values by at least one space\n"
 # define ERR_INVALIDMAP "Map must contain \"01 \" characters only, \
 plus one character among \"NSWE\"\n"
 # define ERR_UNCLOSEDMAP "Map must be closed (surrounded by \"1\")\n"
+# define ERR_BADTEXTURE "Texture file is no valid .xpm file\n"
 # define SCREEN_W 1920
 # define SCREEN_H 1080
 # define EXIT 41
