@@ -6,7 +6,7 @@
 #    By: locharve <locharve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2025/01/14 14:12:08 by locharve         ###   ########.fr        #
+#    Updated: 2025/01/14 16:10:25 by locharve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,9 +64,9 @@ $(NAME): $(OBJ)
 	@$(CC) $(OBJ) $(LIBFT) $(HEADERS) $(MLXFLAGS) -o $(NAME)
 
 mlx :
-	@test -d minilibx-linux || (wget https://cdn.intra.42.fr/document/document/21665/minilibx-linux.tgz \
+	@test -d minilibx-linux || (wget https://cdn.intra.42.fr/document/document/25837/minilibx-linux.tgz \
 		&& tar -xvf minilibx-linux.tgz && make -C minilibx-linux && rm minilibx-linux.tgz)
-
+	@cd minilibx-linux && make && cd ..
 libft:
 	@make --no-print-directory -C ./libft -s
 
@@ -81,3 +81,5 @@ re: clean all
 c: all clean
 
 .PHONY: all, clean, fclean, re, libft
+
+# https://cdn.intra.42.fr/document/document/21665/minilibx-linux.tgz
