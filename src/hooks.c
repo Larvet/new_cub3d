@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:09:48 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 14:25:59 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:13:56 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,21 @@
 
 void	key_hook_move(int keycode, t_cub *cub)
 {
-	if (keycode == 119)
-	{
-		cub->player->x += 1;
+	if (keycode == UP)
 		move_front(cub, true);
-	}
-	else if (keycode == 97)
-	{
-		cub->player->y -= 1;
+	else if (keycode == LEFT)
 		move_side(cub, false);
-	}
-	else if (keycode == 115)
-	{
-		cub->player->x -= 1;
+	else if (keycode == DOWN)
 		move_front(cub, false);
-	}
-	else if (keycode == 100)
-	{
-		cub->player->y += 1;
+	else if (keycode == RIGHT)
 		move_side(cub, true);
-	}
 }
 
 void	key_hook_rotate(int keycode, t_cub *cub)
 {
-	if (keycode == 65361)
+	if (keycode == LEFT_ROTATE)
 		cub->player->p_angle -= 0.05;
-	else if (keycode == 65363)
+	else if (keycode == RIGHT_ROTATE)
 		cub->player->p_angle += 0.05;
 	if (cub->player->p_angle < 0)
 		cub->player->p_angle += 2 * M_PI;

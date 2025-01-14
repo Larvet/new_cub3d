@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:41:19 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 14:25:20 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:15:36 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,18 @@ void	game(t_cub *cub)
 	cub->game->mlx = mlx_init();
 	if (!cub->game->mlx)
 		return ;
+	if (get_img(&cub->game->no_img, cub, cub->path[0]) != 0
+		|| get_img(&cub->game->so_img, cub, cub->path[1]) != 0
+		|| get_img(&cub->game->we_img, cub, cub->path[2]) != 0
+		|| get_img(&cub->game->ea_img, cub, cub->path[3]) != 0)
+	{
+		print_error(_badtexture);
+		t_cub_destroy(cub);
+	}
 	cub->game->win = mlx_new_window(cub->game->mlx,
 			SCREEN_W, SCREEN_H, "cub3d");
 	if (!cub->game->win)
 		return ;
-	get_img(&cub->game->no_img, cub, cub->path[0]);
-	get_img(&cub->game->so_img, cub, cub->path[1]);
-	get_img(&cub->game->we_img, cub, cub->path[2]);
-	get_img(&cub->game->ea_img, cub, cub->path[3]);
 	mlx_hook(cub->game->win, 17, 4, close_cub, cub);
 	mlx_hook(cub->game->win, 2, 1L << 0, key_hook, cub);
 	mlx_loop_hook(cub->game->mlx, game_start, cub);

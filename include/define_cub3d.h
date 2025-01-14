@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_cub3d.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 15:08:18 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:13:08 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ plus one character among \"NSWE\"\n"
 # define SCREEN_W 1920
 # define SCREEN_H 1080
 # define EXIT 41
-# define UP 26
-# define DOWN 22
-# define RIGHT 4
-# define LEFT 7
-# define RIGHT_ROTATE 80
-# define LEFT_ROTATE 79
+# define UP 119
+# define DOWN 115
+# define RIGHT 100
+# define LEFT 97
+# define RIGHT_ROTATE 65363
+# define LEFT_ROTATE 65361
 # define FOV 60
 # define TILE_SIZE 300
 # define IMG_SIZE 300
