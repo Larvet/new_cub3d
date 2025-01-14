@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:13:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 13:06:02 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:06:54 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	main(int argc, char **argv)
 		t_cub_destroy(&cub);
 	}
 	else
-			print_error(_invalidf);
+		print_error(_badarg);
 	return (0);
 }

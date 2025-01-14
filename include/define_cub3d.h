@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_cub3d.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/09 14:44:17 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:05:23 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # define WHITESPACES "\t\n\v\f\r "
 
-# define NBR_ERROR 11 // mettre a jour avec le nombre de t_err
+# define NBR_ERROR 12 // mettre a jour avec le nombre de t_err
 
 # define ERR_MALLOC "Memory allocation failed\n"
+# define ERR_BADARG "The program needs one argument to launch\n"
 # define ERR_BADEXT "File extension muste be .cub\n"
 # define ERR_ISDIR "Path leads to a directory. It must lead to a file\n"
 # define ERR_MISSINGSPACE "Texture and color IDs must be separated from their \

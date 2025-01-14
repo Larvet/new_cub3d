@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 08:06:24 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/31 14:27:04 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:05:55 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ typedef enum e_err	// 12 - 1
 {
 	_ok,			// 0 = no error
 	_malloc,		// malloc error
-	_badext,		// file extension muste be .cub
+	_badarg,		// argc != 2
+	_badext,		// file extension must be .cub
 	_isdir,			// file is a directory
 	_missingspace,	// id and path/value must be separated by at least one space
 	_badpath,		// path format is invalid

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 08:59:07 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 10:51:28 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:46:03 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_err	check_map(t_cub *cub, char ***map)
 {
 	int	y;
 	int	x;
+	int	tmp;
 
 	y = 0;
 	while ((*map)[y])
@@ -65,8 +66,13 @@ t_err	check_map(t_cub *cub, char ***map)
 		x = skip_outcharset((*map)[y], " ");
 		while ((*map)[y][x])
 		{
-			if ((*map)[y][x] && !flood_fill(cub, map, x, y))
+			tmp = flood_fill(cub, map, x, y);
+			while (tmp < 0)
+				tmp = flood_fill(cub, map, x, y);
+			if (!tmp)
 				return (_unclosedmap);
+	//		if ((*map)[y][x] && !flood_fill(cub, map, x, y))
+	//			return (_unclosedmap);
 			x += skip_outcharset(&(*map)[y][x], WHITESPACES);
 		}
 		y++;

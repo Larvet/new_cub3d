@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+         #
+#    By: locharve <locharve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2025/01/13 15:30:21 by vnavarre         ###   ########.fr        #
+#    Updated: 2025/01/14 14:12:08 by locharve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SRC = main.c \
 	wall_rend.c \
 	wall_utils.c \
 	move.c \
-	move_utils.c
+	move_utils.c \
+	hooks.c
 	
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
