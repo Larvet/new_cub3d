@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 11:41:19 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 14:10:41 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:25:20 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	game(t_cub *cub)
 	get_img(&cub->game->we_img, cub, cub->path[2]);
 	get_img(&cub->game->ea_img, cub, cub->path[3]);
 	mlx_hook(cub->game->win, 17, 4, close_cub, cub);
-	mlx_hook(cub->game->win, 2, 1L<<0, key_hook, cub);
+	mlx_hook(cub->game->win, 2, 1L << 0, key_hook, cub);
 	mlx_loop_hook(cub->game->mlx, game_start, cub);
 	mlx_loop(cub->game->mlx);
 }
