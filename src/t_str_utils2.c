@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:22:43 by locharve          #+#    #+#             */
-/*   Updated: 2024/10/30 11:24:13 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:22:00 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_err	strlist_init(t_str **list, int fd)
 	char	*line;
 
 	line = get_next_line(fd);
+		printf("line = %s\n", line); /////
 	while (line)
 	{
 		node = t_str_new(line);

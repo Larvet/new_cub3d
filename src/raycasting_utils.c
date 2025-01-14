@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:01:50 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 11:01:01 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:20:42 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	fill_p_angle(t_cub *cub, char c)
+{
+	if (c == 'N')
+		cub->player->p_angle = (3 * M_PI / 2);
+	if (c == 'S')
+		cub->player->p_angle = (M_PI / 2);
+	if (c == 'E')
+		cub->player->p_angle = (2 * M_PI);
+	if (c == 'W')
+		cub->player->p_angle = (M_PI);
+}
 
 double	trig_agl(double agl)
 {
