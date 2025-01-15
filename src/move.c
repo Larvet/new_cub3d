@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:53:05 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 16:09:37 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/15 12:30:07 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	rotate(t_cub *cub)
 {
 	if (cub->player->move[_leftrotate])
 		cub->player->p_angle -= 0.05;
-	else if (cub->player->move[_rightrotate])
+	if (cub->player->move[_rightrotate])
 		cub->player->p_angle += 0.05;
 	if (cub->player->p_angle < 0)
 		cub->player->p_angle += 2 * M_PI;
@@ -80,16 +80,15 @@ void	rotate(t_cub *cub)
 
 void	move(t_cub *cub)
 {
-	if (cub->player->move[_up])
+	if (cub->player->move[_up] && !cub->player->move[_down])
 		move_front(cub, true);
-	if (cub->player->move[_down])
+	if (cub->player->move[_down] && !cub->player->move[_up])
 		move_front(cub, false);
-	if (cub->player->move[_leftside])
+	if (cub->player->move[_leftside] && !cub->player->move[_rightside])
 		move_side(cub, false);
-	if (cub->player->move[_rightside])
+	if (cub->player->move[_rightside] && !cub->player->move[_leftside])
 		move_side(cub, true);
-	if (cub->player->move[_leftrotate])
-		rotate(cub);
-	if (cub->player->move[_rightrotate])
+	if ((cub->player->move[_leftrotate] && !cub->player->move[_rightrotate])
+		|| (cub->player->move[_rightrotate] && !cub->player->move[_leftrotate]))
 		rotate(cub);
 }
