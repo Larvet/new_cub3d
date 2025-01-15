@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 08:06:24 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 15:08:23 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:21:07 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef enum e_err
 	_invalidrgb,
 	_invalidmap,
 	_unclosedmap,
-	_badtexture
+	_badtexture,
+	_fflimit
 }	t_err;
 
 typedef enum e_arg_id

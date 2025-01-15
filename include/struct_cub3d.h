@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:48:43 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 14:29:42 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:20:39 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_cub
 	char		**map;
 	size_t		width;
 	size_t		height;
+	int			ffcount;
 	t_err		err;
 	t_player	*player;
 	t_game		*game;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_cub3d.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 07:56:28 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 15:13:08 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:20:59 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define WHITESPACES "\t\n\v\f\r "
 
-# define NBR_ERROR 13 // mettre a jour avec le nombre de t_err
+# define NBR_ERROR 14
 
 # define ERR_MALLOC "Memory allocation failed\n"
 # define ERR_BADARG "The program needs one argument to launch\n"
@@ -35,6 +35,8 @@ path/values by at least one space\n"
 plus one character among \"NSWE\"\n"
 # define ERR_UNCLOSEDMAP "Map must be closed (surrounded by \"1\")\n"
 # define ERR_BADTEXTURE "Texture file is no valid .xpm file\n"
+# define ERR_FFLIMIT "Floodfill limit: cannot handle so much space characters\n"
+# define FFLIMIT 10000
 # define SCREEN_W 1920
 # define SCREEN_H 1080
 # define EXIT 41

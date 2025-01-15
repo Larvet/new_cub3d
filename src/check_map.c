@@ -6,7 +6,7 @@
 /*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 08:59:07 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 14:25:48 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:20:47 by locharve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 int	flood_fill(t_cub *cub, char ***map, int x, int y)
 {
+	cub->ffcount += 1;
+	if (cub->ffcount >= FFLIMIT)
+	{
+		cub->err = _fflimit;
+		return (0);
+	}
 	if (y < 0 || y >= (int)cub->height
 		|| x < 0 || x >= (int)cub->width)
 		return (1);
@@ -65,8 +71,13 @@ t_err	check_map(t_cub *cub, char ***map)
 		x = skip_outcharset((*map)[y], " ");
 		while ((*map)[y][x])
 		{
+			cub->ffcount = 0;
 			if ((*map)[y][x] && !flood_fill(cub, map, x, y))
+			{
+				if (cub->err == _fflimit)
+					return (_fflimit);
 				return (_unclosedmap);
+			}
 			x += skip_outcharset(&(*map)[y][x], WHITESPACES);
 		}
 		y++;
