@@ -6,7 +6,7 @@
 #    By: locharve <locharve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 05:30:41 by locharve          #+#    #+#              #
-#    Updated: 2025/01/14 16:10:25 by locharve         ###   ########.fr        #
+#    Updated: 2025/01/15 16:26:30 by locharve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,12 +66,14 @@ $(NAME): $(OBJ)
 mlx :
 	@test -d minilibx-linux || (wget https://cdn.intra.42.fr/document/document/25837/minilibx-linux.tgz \
 		&& tar -xvf minilibx-linux.tgz && make -C minilibx-linux && rm minilibx-linux.tgz)
-	@cd minilibx-linux && make && cd ..
+	@make --no-print-directory -C ./minilibx-linux -s
 libft:
 	@make --no-print-directory -C ./libft -s
 
 clean:
 	@rm -rf $(OBJ_DIR)
+	@make clean --no-print-directory -C ./libft -s
+	@make clean --no-print-directory -C ./minilibx-linux -s
 
 fclean: clean
 	@rm -rf $(NAME)
