@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:15:33 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 11:08:21 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/15 11:40:46 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,17 @@ void	draw(t_cub *cub, int t_p, int b_p, int ray)
 	y = t_p;
 	wall_hitx = cub->player->px_x + cub->ray->dist * cos(cub->ray->agl);
 	wall_hity = cub->player->px_y + cub->ray->dist * sin(cub->ray->agl);
+	get_img2(cub);
 	if (!cub->ray->pflag)
-		texture_x = (int)(wall_hity) % TILE_SIZE * IMG_SIZE / TILE_SIZE;
+		texture_x = (int)(wall_hity) % TILE_SIZE * cub->game->actimg.width  / TILE_SIZE;
 	else
-		texture_x = (int)(wall_hitx) % TILE_SIZE * IMG_SIZE / TILE_SIZE;
+		texture_x = (int)(wall_hitx) % TILE_SIZE * cub->game->actimg.width / TILE_SIZE;
 	while (y < b_p)
 	{
-		get_img2(cub);
-		texture_y = (y - t_p) * IMG_SIZE / (b_p - t_p);
+		texture_y = (y - t_p) * cub->game->actimg.height / (b_p - t_p);
 		ft_mlx_pixel_put(&cub->game->img, ray, y,
 			ft_mlx_get_pixel_color(&cub->game->actimg, texture_x, texture_y));
+		get_img2(cub);
 		y++;
 	}
 }
