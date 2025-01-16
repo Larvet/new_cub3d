@@ -64,16 +64,15 @@ $(NAME): $(OBJ)
 	@$(CC) $(OBJ) $(LIBFT) $(HEADERS) $(MLXFLAGS) -o $(NAME)
 
 mlx :
-	@test -d minilibx-linux || (wget https://cdn.intra.42.fr/document/document/25837/minilibx-linux.tgz \
-		&& tar -xvf minilibx-linux.tgz && make -C minilibx-linux && rm minilibx-linux.tgz)
-	@make --no-print-directory -C ./minilibx-linux -s
+	@((test -d minilibx-linux && make --no-print-directory -C minilibx-linux) || (wget https://cdn.intra.42.fr/document/document/25837/minilibx-linux.tgz \
+		&& tar -xvf minilibx-linux.tgz && make --no-print-directory -C minilibx-linux && rm minilibx-linux.tgz))
+
 libft:
-	@make --no-print-directory -C ./libft -s
+	@(test -d libft && make --no-print-directory -C ./libft -s) || echo "libft directory missing\n"
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@make clean --no-print-directory -C ./libft -s
-	@make clean --no-print-directory -C ./minilibx-linux -s
+	@(test -d libft && make clean --no-print-directory -C ./libft -s)
 
 fclean: clean
 	@rm -rf $(NAME)
