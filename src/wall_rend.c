@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:15:33 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/15 11:40:46 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:33:57 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void	print_c_and_f(t_cub *cub)
 	int	rgb;
 
 	y = 0;
-	rgb = cub->rgb[0];
+	rgb = cub->rgb[1];
 	while (y < SCREEN_H)
 	{
 		x = 0;
 		if (y == SCREEN_H / 2)
-			rgb = cub->rgb[1];
+			rgb = cub->rgb[0];
 		while (x < SCREEN_W)
 		{
 			ft_mlx_pixel_put(&cub->game->img, x, y, rgb);
@@ -59,16 +59,20 @@ void	draw(t_cub *cub, int t_p, int b_p, int ray)
 	int		y;
 
 	y = t_p;
+	//if (y < 0)
+		//y = 0;
+	y *= !(y < 0);
 	wall_hitx = cub->player->px_x + cub->ray->dist * cos(cub->ray->agl);
 	wall_hity = cub->player->px_y + cub->ray->dist * sin(cub->ray->agl);
 	get_img2(cub);
 	if (!cub->ray->pflag)
-		texture_x = (int)(wall_hity) % TILE_SIZE * cub->game->actimg.width  / TILE_SIZE;
+		texture_x = (int)(wall_hity) % TILE_SIZE * cub->game->actimg.width / TILE_SIZE;
 	else
 		texture_x = (int)(wall_hitx) % TILE_SIZE * cub->game->actimg.width / TILE_SIZE;
-	while (y < b_p)
+	while (y < b_p && y < SCREEN_H)
 	{
 		texture_y = (y - t_p) * cub->game->actimg.height / (b_p - t_p);
+		crop_texture(cub, &texture_x, &texture_y, false);
 		ft_mlx_pixel_put(&cub->game->img, ray, y,
 			ft_mlx_get_pixel_color(&cub->game->actimg, texture_x, texture_y));
 		get_img2(cub);
@@ -87,9 +91,6 @@ void	render(t_cub *cub, int ray)
 		* ((SCREEN_W / 2) / tan(cub->player->fov / 2));
 	t_p = (SCREEN_H / 2) - (h_w / 2);
 	b_p = (SCREEN_H / 2) + (h_w / 2);
-	if (t_p < 0)
-		t_p = 0;
-	if (b_p > SCREEN_H)
-		b_p = SCREEN_H;
-	draw(cub, t_p, b_p, ray);
+	if (cub->ray->dist < TILE_SIZE * 150)
+		draw(cub, t_p, b_p, ray);
 }

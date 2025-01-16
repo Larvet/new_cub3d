@@ -6,7 +6,7 @@
 /*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:21 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 10:58:33 by vnavarre         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:48:18 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	check_npx(t_cub *cub, double old_p, double new_p)
 
 	x = 0;
 	y = (int)cub->player->px_y / TILE_SIZE;
-	buff = 200;
+	buff = TILE_SIZE / 4;
 	if (new_p >= old_p)
 	{
 		x = (int)((new_p + buff) / TILE_SIZE);

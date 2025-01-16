@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_cub3d.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:18:46 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 14:27:02 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:53:03 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	render(t_cub *cub, int ray);
 void	creat_image(t_image *img, void *mlx, int width, int height);
 void	move_front(t_cub *cub, bool dir);
 void	get_img2(t_cub *cub);
+void	crop_texture(t_cub *cub, int *texture_x, int *texture_y, bool h);
 void	move_side(t_cub *cub, bool dir);
 bool	check_npx(t_cub *cub, double old_p, double new_p);
 bool	check_npy(t_cub *cub, double old_p, double new_p);

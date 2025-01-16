@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_cub.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 06:55:32 by locharve          #+#    #+#             */
-/*   Updated: 2025/01/14 13:38:24 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:50:24 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_err	t_cub_init(t_cub *cub)
 		return (cub->err);
 	cub->raw = NULL;
 	cub->err = _ok;
+	cub->h_w = 0;
 	cub->rgb[0] = -1;
 	cub->rgb[1] = -1;
 	cub->height = 0;

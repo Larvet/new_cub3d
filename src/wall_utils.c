@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: locharve <locharve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vnavarre <vnavarre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:19:06 by vnavarre          #+#    #+#             */
-/*   Updated: 2025/01/14 14:20:30 by locharve         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:52:31 by vnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,30 @@ void	get_img2(t_cub *cub)
 			cub->game->actimg = cub->game->no_img;
 		else
 			cub->game->actimg = cub->game->so_img;
+	}
+}
+
+void	crop_texture(t_cub *cub, int *texture_x, int *texture_y, bool h)
+{
+	double	factor;
+
+	factor = ((cub->h_w - SCREEN_H) / TILE_SIZE) >> 1;
+	if (factor > 0)
+	{
+
+		if (h)
+		{
+			if (*texture_x >= SCREEN_W >> 1)
+				*texture_x -= factor;
+			else
+				*texture_x += factor;
+		}
+		else
+		{
+			if (*texture_y >= SCREEN_H >> 1)
+				*texture_y -= factor;
+			else
+				*texture_y += factor;
+		}
 	}
 }
