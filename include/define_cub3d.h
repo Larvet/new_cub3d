@@ -36,7 +36,7 @@ plus one character among \"NSWE\"\n"
 # define ERR_UNCLOSEDMAP "Map must be closed (surrounded by \"1\")\n"
 # define ERR_BADTEXTURE "Texture file is no valid .xpm file\n"
 # define ERR_FFLIMIT "Floodfill limit: cannot handle so much space characters\n"
-# define FFLIMIT 10000
+# define FFLIMIT 1000
 # define SCREEN_W 1920
 # define SCREEN_H 1080
 # define EXIT 41

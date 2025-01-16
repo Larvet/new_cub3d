@@ -75,7 +75,7 @@ t_err	check_map(t_cub *cub, char ***map)
 			if ((*map)[y][x] && !flood_fill(cub, map, x, y))
 			{
 				if (cub->err == _fflimit)
-					return (_fflimit);
+					continue ;
 				return (_unclosedmap);
 			}
 			x += skip_outcharset(&(*map)[y][x], WHITESPACES);
