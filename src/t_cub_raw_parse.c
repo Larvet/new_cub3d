@@ -70,6 +70,6 @@ t_err	t_cub_raw_parse(t_cub *cub)
 	if (!t_cub_set_raw_args(cub, cub->raw)
 		&& !t_cub_set_path(cub, cub->raw_args)
 		&& !t_cub_set_rgb(cub, cub->raw_args))
-		cub->err = !t_cub_set_map(cub, cub->raw);
+		cub->err = t_cub_set_map(cub, cub->raw);
 	return (cub->err);
 }
